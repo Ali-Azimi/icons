@@ -21,6 +21,7 @@ export default function Home({ svgComponentNames }) {
   const [state, setState] = useState(null);
   const [search, setSearch] = useState('');
   const [icons, setIcons] = useState([]);
+  const [iconNames, setIconNames] = useState([]);
 
   useEffect(() => {
     const svgComponents = svgComponentNames.reduce((acc, componentName) => {
@@ -30,11 +31,13 @@ export default function Home({ svgComponentNames }) {
       return acc;
     }, {});
     setIcons(svgComponents);
+    setIconNames(svgComponentNames);
   }, []);
 
   const handleIconSelect = (index, SvgComponent) => {
+    debugger;
     setState({
-      title: svgComponentNames[index],
+      title: iconNames[index],
       icon: <SvgComponent width={94} height={94} />,
     });
   };
@@ -58,6 +61,7 @@ export default function Home({ svgComponentNames }) {
     }, {});
     debugger;
     setIcons(filteredSvgs);
+    setIconNames(filtered);
   };
   return (
     <>
