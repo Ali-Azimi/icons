@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import path from 'path';
 import classes from './index.module.css';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const svgFiles = glob.sync(
@@ -65,6 +66,9 @@ export default function Home({ svgComponentNames }) {
   };
   return (
     <>
+      <Head>
+        <title>azki lighthouse icons</title>
+      </Head>
       <header className={classes.header}>
         <h1 className={classes.heading}>
           Lighthouse Icons{' '}
